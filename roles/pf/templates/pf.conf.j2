@@ -1,0 +1,26 @@
+# {{ ansible_managed }}
+
+# Disable all filtering on loopback interfaces.
+set skip on lo
+
+# Macro for the external interface.
+ext_if = "vtnet0"
+
+# Scrub all inbound traffic.
+scrub in on $ext_if all fragment reassemble
+
+# Block all inbound and outbound traffic by default.
+block return all
+
+# Enable protection against address spoofing.
+antispoof for $ext_if
+
+# Allow any outbound traffic.
+pass out on $ext_if proto { tcp, udp, icmp } from any to any modulate state
+
+# Allow inbound SSH traffic.
+pass in on $ext_if proto tcp from any to any port ssh synproxy state
+
+# Allow inbound traffic.
+open_ports = "{ {{ pf_open_ports|join(",") }} }"
+pass in on $ext_if proto tcp from any to any port $open_ports synproxy state
