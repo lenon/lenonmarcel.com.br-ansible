@@ -1,0 +1,43 @@
+# {{ ansible_managed }}
+
+user  www;
+worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile           on;
+    keepalive_timeout  65;
+
+    server_tokens  off;
+
+    gzip  on;
+
+    server {
+        listen 80 default_server;
+        server_name _;
+        return 444;
+    }
+
+    server {
+        server_name {{ nginx_alt_server_names | join(" ") }};
+        rewrite ^ http://{{ nginx_server_name }}$request_uri? permanent;
+    }
+
+    server {
+        listen       80;
+        server_name  {{ nginx_server_name }};
+
+        location / {
+            root   /usr/local/www/{{ nginx_server_name }};
+            index  index.html;
+        }
+
+        error_page  404  /404.html;
+    }
+}
