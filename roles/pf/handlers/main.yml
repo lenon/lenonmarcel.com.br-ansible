@@ -1,5 +1,3 @@
 - name: reload pf
   service: name=pf state=reloaded
-  async: 5 # pf reload may kill established connections
-  poll: 1
   sudo: yes
