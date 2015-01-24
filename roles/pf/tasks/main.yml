@@ -7,7 +7,7 @@
   sudo: yes
   notify: reload pf
 
-- name: enable pf
+- name: enable pf on boot
   service: name=pf state=started enabled=yes
   sudo: yes
 
