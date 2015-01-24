@@ -11,9 +11,10 @@
   service: name=pf state=started enabled=yes
   sudo: yes
 
-- shell: pfctl -s info
-  register: pfctl_info
+- name: check if pf is enabled
+  command: /sbin/pfctl -s info
   sudo: yes
+  register: pfctl_info
 
 - name: start pf
   command: pfctl -e
