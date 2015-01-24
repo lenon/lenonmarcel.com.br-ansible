@@ -16,7 +16,8 @@
   sudo: yes
   register: pfctl_info
 
-- name: start pf
-  command: pfctl -e
-  when: pfctl_info.stdout.find('Enabled') == -1
+- name: make sure pf is enabled
+  command: /sbin/pfctl -e
+  when: |
+    "Status: Enabled" not in pfctl_info.stdout
   sudo: yes
