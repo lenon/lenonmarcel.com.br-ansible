@@ -1,3 +1,7 @@
+- name: load kernel module
+  command: /sbin/kldload pf creates=/dev/pf
+  sudo: yes
+
 - name: copy pf config
   template: src=pf.conf.j2 dest=/etc/pf.conf owner=root group=wheel mode=0644
   sudo: yes
