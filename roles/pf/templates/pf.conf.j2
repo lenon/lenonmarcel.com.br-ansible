@@ -18,6 +18,9 @@ antispoof for $ext_if
 # Allow any outbound traffic.
 pass out on $ext_if proto { tcp, udp, icmp } modulate state
 
+# Allow inbound ICMP traffic.
+pass in on $ext_if proto icmp
+
 # Allow inbound SSH traffic.
 pass in on $ext_if proto tcp to port ssh synproxy state
 
