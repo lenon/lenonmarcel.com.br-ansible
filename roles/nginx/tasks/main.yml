@@ -11,3 +11,7 @@
             owner=root group=wheel mode=0644
   notify: restart nginx
   sudo: yes
+
+- name: create certs dir
+  file: path=/usr/local/etc/nginx/ssl state=directory mode=0700
+  sudo: yes
