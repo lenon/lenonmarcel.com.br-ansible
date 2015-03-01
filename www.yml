@@ -4,3 +4,4 @@
     - nginx
     - pf
     - web
+    - aliases
