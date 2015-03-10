@@ -1,6 +1,7 @@
 - hosts:
     - www
   roles:
+    - openssh
     - nginx
     - pf
     - web
