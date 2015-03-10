@@ -17,3 +17,6 @@ nginx_server_name: lenonmarcel.com.br
 
 cert_crt: /usr/local/etc/nginx/ssl/lenonmarcel_com_br.crt
 cert_key: /usr/local/etc/nginx/ssl/lenonmarcel_com_br.key
+
+aliases:
+  - { user: root, alias: contato@lenon.com.br }
