@@ -1,5 +1,0 @@
-- name: setup aliases
-  lineinfile: |
-    dest=/etc/aliases regexp='^root:' line='root: {{ root_mail }}' backup=yes
-  notify: reload aliases
-  sudo: yes
