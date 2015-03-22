@@ -1,5 +1,6 @@
 - hosts:
     - www
+  remote_user: freebsd
   sudo: yes
   roles:
     - openssh
