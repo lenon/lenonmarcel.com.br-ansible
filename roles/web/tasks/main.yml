@@ -1,14 +1,11 @@
 - name: make sure that deploy user is present
   user: name=deploy group=www
-  sudo: yes
 
 - name: set up authorized_keys for the deploy user
   authorized_key: user=deploy key="{{ item }}"
   with_file:
     - public_keys/lenon.pub
-  sudo: yes
 
 - name: create a directory for the website
   file: path=/usr/local/www/{{ nginx_server_name }} owner=deploy group=www
         state=directory
-  sudo: yes
