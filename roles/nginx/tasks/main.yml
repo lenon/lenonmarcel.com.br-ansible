@@ -22,5 +22,10 @@
   sudo: yes
   notify: restart nginx
 
-- name: check dhparams permissions
-  file: path={{ nginx_dhparam }} owner=root mode=600 state=file
+- name: check {{ item }} permissions
+  file: path={{ item }} owner=root mode=600 state=file
+  with_items:
+    - '{{ nginx_cert_crt }}'
+    - '{{ nginx_cert_key }}'
+    - '{{ nginx_dhparam }}'
+  notify: restart nginx
