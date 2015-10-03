@@ -11,3 +11,16 @@
 
 - name: create certs dir
   file: path=/usr/local/etc/nginx/ssl state=directory mode=0700
+
+- name: check if dhparams exists
+  stat: path={{ nginx_dhparam }}
+  register: dhparams_file
+
+- name: make sure dhparams exist
+  command: openssl dhparam -out {{ nginx_dhparam }} 2048
+  when: dhparams_file.stat.exists == False
+  sudo: yes
+  notify: restart nginx
+
+- name: check dhparams permissions
+  file: path={{ nginx_dhparam }} owner=root mode=600 state=file

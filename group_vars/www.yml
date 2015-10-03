@@ -14,8 +14,9 @@ nginx_alt_server_names:
 
 nginx_server_name: lenonmarcel.com.br
 
-cert_crt: /usr/local/etc/nginx/ssl/lenonmarcel_com_br.crt
-cert_key: /usr/local/etc/nginx/ssl/lenonmarcel_com_br.key
+nginx_cert_crt: /usr/local/etc/nginx/ssl/lenonmarcel_com_br.crt
+nginx_cert_key: /usr/local/etc/nginx/ssl/lenonmarcel_com_br.key
+nginx_dhparam: /usr/local/etc/nginx/ssl/dhparams.pem
 
 aliases:
   - { user: root, alias: contato@lenon.com.br }
