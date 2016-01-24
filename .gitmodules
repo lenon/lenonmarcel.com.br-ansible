@@ -6,4 +6,4 @@
 	url = git@github.com:lenon/ansible-aliases.git
 [submodule "roles/openssh"]
 	path = roles/openssh
-	url = git@github.com:lenon/ansible-openssh.git
+	url = git@github.com:lenon/ansible-freebsd-openssh.git
