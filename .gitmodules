@@ -3,7 +3,7 @@
 	url = git@github.com:lenon/ansible-freebsd-pf.git
 [submodule "roles/aliases"]
 	path = roles/aliases
-	url = git@github.com:lenon/ansible-aliases.git
+	url = git@github.com:lenon/ansible-freebsd-aliases.git
 [submodule "roles/openssh"]
 	path = roles/openssh
 	url = git@github.com:lenon/ansible-freebsd-openssh.git
