@@ -1,7 +1,6 @@
 - hosts:
     - www
-  remote_user: freebsd
-  sudo: yes
+  become: yes
   roles:
     - openssh
     - nginx
