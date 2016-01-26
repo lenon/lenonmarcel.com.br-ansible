@@ -15,4 +15,4 @@ nginx_alt_server_names:
   - www.lenonmarcel.com.br
 
 aliases:
-  - { user: root, alias: contato@lenon.com.br }
+  - { user: root, alias: lenon@lenon.com.br }
