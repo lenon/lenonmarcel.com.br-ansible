@@ -1,2 +1,2 @@
 [www]
-188.166.9.178
+web.lenonmarcel.com.br ansible_user=freebsd ansible_python_interpreter=/usr/local/bin/python2
