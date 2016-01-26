@@ -5,18 +5,14 @@ pf_open_ports:
   - http
   - https
 
+nginx_server_name: lenonmarcel.com.br
+nginx_cert_name: lenonmarcel_com_br
 nginx_alt_server_names:
   - lenon.com.br
   - lenon.ninja
   - www.lenon.com.br
   - www.lenon.ninja
   - www.lenonmarcel.com.br
-
-nginx_server_name: lenonmarcel.com.br
-
-nginx_cert_crt: /usr/local/etc/nginx/ssl/lenonmarcel_com_br.crt
-nginx_cert_key: /usr/local/etc/nginx/ssl/lenonmarcel_com_br.key
-nginx_dhparam: /usr/local/etc/nginx/ssl/dhparams.pem
 
 aliases:
   - { user: root, alias: contato@lenon.com.br }

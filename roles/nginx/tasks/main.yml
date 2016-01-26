@@ -10,9 +10,9 @@
   notify: restart nginx
 
 - name: create certs dir
-  file: path=/usr/local/etc/nginx/ssl state=directory mode=0700
+  file: path={{ nginx_ssl_path }} state=directory mode=0700
 
-- name: check if dhparams exists
+- name: check dhparams status
   stat: path={{ nginx_dhparam }}
   register: dhparams_file
 

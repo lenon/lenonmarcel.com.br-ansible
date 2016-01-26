@@ -1,0 +1,4 @@
+nginx_ssl_path: /usr/local/etc/nginx/ssl/
+nginx_cert_crt: '{{ nginx_ssl_path }}{{ nginx_cert_name }}.crt'
+nginx_cert_key: '{{ nginx_ssl_path}}{{ nginx_cert_name }}.key'
+nginx_dhparam: '{{ nginx_ssl_path }}{{ nginx_cert_name }}_dhparams.pem'
