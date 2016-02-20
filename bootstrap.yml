@@ -1,0 +1,24 @@
+- hosts:
+    - www
+  become: yes
+  vars:
+    - ansible_ssh_port: 22
+  tasks:
+    - name: remove digitalocean shit message
+      replace:
+        dest: /etc/ssh/sshd_config
+        regexp: 'Match User root\n\tForceCommand echo .*Please use the freebsd.*'
+        validate: sshd -t -f %s
+      notify: reload sshd
+    - name: change sshd port
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: ^Port
+        line: Port 8164
+        validate: sshd -t -f %s
+      notify: reload sshd
+  handlers:
+    - name: reload sshd
+      service:
+        name: sshd
+        state: reloaded
