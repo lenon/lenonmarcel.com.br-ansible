@@ -1,2 +1,7 @@
 [www]
-web.lenonmarcel.com.br ansible_user=freebsd ansible_python_interpreter=/usr/local/bin/python2
+web.lenonmarcel.com.br
+
+[www:vars]
+ansible_ssh_user=freebsd
+ansible_ssh_port=8164
+ansible_python_interpreter=/usr/local/bin/python2
