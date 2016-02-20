@@ -19,7 +19,6 @@
 - name: make sure dhparams exist
   command: openssl dhparam -out {{ nginx_dhparam }} 2048
   when: dhparams_file.stat.exists == False
-  sudo: yes
   notify: restart nginx
 
 - name: check {{ item }} permissions
