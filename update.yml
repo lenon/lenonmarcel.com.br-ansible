@@ -1,11 +1,11 @@
 - hosts:
     - www
-  remote_user: freebsd
-  sudo: yes
+  become: yes
   tasks:
-    - command: /usr/sbin/freebsd-update fetch
-    - command: /usr/sbin/freebsd-update install
-    - command: shutdown -r now 'Reboot triggered by Ansible'
-      async: 0
-      poll: 0
+    - name: fetch updates
+      command: /usr/sbin/freebsd-update fetch
+    - name: install updates
+      command: /usr/sbin/freebsd-update install
+    - name: reboot server
+      command: reboot
       ignore_errors: true
