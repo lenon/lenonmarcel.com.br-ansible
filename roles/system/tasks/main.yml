@@ -1,2 +1,5 @@
-- name: ensure pkg is up-to-date
+- name: ensure pkg is installed
   pkgng: name=pkg state=present
+
+- name: ensure pkg is up-to-date
+  command: pkg update
