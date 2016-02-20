@@ -1,5 +1,5 @@
 pf_open_ports:
-  - ssh
+  - 8164
   - http
   - https
 
