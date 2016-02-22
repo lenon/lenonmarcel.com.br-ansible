@@ -1,0 +1,21 @@
+- hosts:
+    - www
+  become: yes
+  vars_prompt:
+    - name: nginx_cert_crt
+      prompt: "Path to the .crt bundle:"
+      private: no
+    - name: nginx_cert_key
+      prompt: "Path to the .key file:"
+      private: no
+  tasks:
+    - name: copy .crt file
+      copy:
+        src: '{{ nginx_cert_crt }}'
+        dest: '/usr/local/etc/nginx/ssl/{{ nginx_cert_name }}.crt'
+        mode: 0600
+    - name: copy .key file
+      copy:
+        src: '{{ nginx_cert_key }}'
+        dest: '/usr/local/etc/nginx/ssl/{{ nginx_cert_name }}.key'
+        mode: 0600
