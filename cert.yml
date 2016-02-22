@@ -9,6 +9,7 @@
       prompt: "Path to the .key file:"
       private: no
   tasks:
+    - file: path=/usr/local/etc/nginx/ssl state=directory mode=0700
     - name: copy .crt file
       copy:
         src: '{{ nginx_cert_crt }}'
