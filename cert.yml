@@ -3,10 +3,10 @@
   become: yes
   vars_prompt:
     - name: nginx_cert_crt
-      prompt: "Path to the .crt bundle:"
+      prompt: "Path to the .crt bundle"
       private: no
     - name: nginx_cert_key
-      prompt: "Path to the .key file:"
+      prompt: "Path to the .key file"
       private: no
   tasks:
     - file: path=/usr/local/etc/nginx/ssl state=directory mode=0700
